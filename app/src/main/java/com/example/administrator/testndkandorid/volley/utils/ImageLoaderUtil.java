@@ -32,7 +32,7 @@ public class ImageLoaderUtil {
         }, 100, 100, Bitmap.Config.RGB_565, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error != null) {
+                if (error != null && error.networkResponse != null) {
                     Toast.makeText(imageView.getContext(), error.networkResponse.toString(), Toast.LENGTH_LONG).show();
                 }
                 imageView.setBackgroundResource(R.mipmap.ic_launcher);
